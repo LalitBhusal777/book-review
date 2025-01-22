@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.book-img {
+    width: 900px;
+    height: 1300px;
+    object-fit: cover;
+}
