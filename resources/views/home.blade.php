@@ -33,6 +33,7 @@
                 @foreach($books as $book)
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card border-0 shadow-lg">
+                        <a href="{{route('book.detail',$book->id)}}">
                         {{-- Image Display Logic --}}
                         <img src="{{ $book->image && file_exists(public_path('uploads/books/thumb/' . $book->image)) 
                                     ? asset('uploads/books/thumb/' . $book->image) 
@@ -40,6 +41,7 @@
                             alt="{{ $book->title }}"
                             class="card-img-top book-img"
                             style="width: 100%; height: auto; max-width: 900px; max-height: 1300px; object-fit: cover;">
+                            </a>
 
                         <div class="card-body">
                             <h3 class="h4 heading">{{ $book->title }}</h3>

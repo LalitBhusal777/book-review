@@ -26,4 +26,18 @@ class HomeController extends Controller
         // Pass the keyword back to the view
         return view('home', compact('books', 'keyword'));
     }    
+    public function detail($id){
+
+        $book = Book::findOrFail($id);
+        if($book->status==0){
+            abort(404);
+        }
+        $relatedBooks=Book::where('status',1)->take(3)->where('id','!=',$id)->inRandomOrder()->get();
+        return view('book-detail',[
+            'book' => $book,
+            'relatedBooks'=> $relatedBooks
+        ]
+    );
+
+    }
 }
