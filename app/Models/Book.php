@@ -8,4 +8,7 @@ class Book extends Model
 {
     //
     protected $table = 'books';
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
 }
