@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('main')
 <div class="container">
@@ -64,7 +65,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="edit-review.html" class="btn btn-primary btn-sm">
+                                    <a href="{{route('account.myReviews.editReview',$review->id)}}" class="btn btn-primary btn-sm">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
                                     <a href="#" class="btn btn-danger btn-sm">

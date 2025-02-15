@@ -49,17 +49,23 @@
             </div>
         </div>
         <div class="col-md-9">
-            @include('layouts.message')
 
             <div class="card border-0 shadow">
                 <div class="card-header  text-white">
                     My Reviews
                 </div>
                 <div class="card-body pb-0">
-                    <form action="{{ route('account.reviews.updateReview',$review->id) }}" method="POST">
+                    <form action="{{ route('account.myReviews.updateReview',$review->id) }}" method="POST">
                         @csrf
 
                         <!-- Name Field -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Book</label>
+                           <div>
+                           <strong> {{$review->book->title}} </strong>
+                           </div>
+                          
+                        </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Review</label>
                            <textarea name="review" class="form-control  @error('review') is-invalid @enderror" id="review">{{old('review',$review->review)}} </textarea>
@@ -70,10 +76,13 @@
 
                         <!-- Email Field -->
                         <div class="mb-3">
-                            <label for="name" class="form-label">Status</label>
-                            <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-                                <option value="1"{{($review->status==1)?'selected':''}}>Active</option>
-                                <option value="0"{{($review->status==0)?'selected':''}}>Block</option>
+                            <label for="name" class="form-label">Rating</label>
+                            <select name="rating" id="rating" class="form-control @error('rating') is-invalid @enderror">
+                                <option value="1"{{($review->rating==1)?'selected':''}}>1</option>
+                                <option value="2"{{($review->rating==2)?'selected':''}}>2</option>
+                                <option value="3"{{($review->rating==3)?'selected':''}}>3</option>
+                                <option value="4"{{($review->rating==4)?'selected':''}}>4</option>
+                                <option value="5"{{($review->rating==5)?'selected':''}}>5</option>
 
 
                     
