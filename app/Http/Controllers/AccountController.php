@@ -160,4 +160,18 @@ class AccountController extends Controller
     $review->save();
     return redirect()->route('account.myReviews')->with('success','Review updated successfully');
 }
+public function deleteReview(Request $request)
+{
+    // Validate the request
+    $request->validate([
+        'id' => 'required|integer|exists:reviews,id'
+    ]);
+
+    // Find and delete the review
+    $review = Review::findOrFail($request->id);
+    $review->delete();
+
+    return response()->json(['success' => 'Review deleted successfully'], 200);
+}
+
 }

@@ -68,7 +68,7 @@
                                     <a href="{{route('account.myReviews.editReview',$review->id)}}" class="btn btn-primary btn-sm">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger btn-sm">
+                                    <a href="javascript:void(0);"onClick="deleteReview({{$review->id}})" class="btn btn-danger btn-sm">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
@@ -86,4 +86,28 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    function deleteReview(id) {
+        if (confirm('Are you sure you want to delete this review?')) {
+            $.ajax({
+                type: 'DELETE', // Use DELETE method
+                url: '{{ route("account.myReviews.deleteReview") }}',
+                data: { id: id },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    alert(response.success); // Show success message
+                    window.location.href = '{{ route("account.myReviews") }}'; // Redirect to review list
+                },
+                error: function(xhr) {
+                    console.error(xhr.responseText);
+                    alert('Error deleting review. Please try again.');
+                }
+            });
+        }
+    }
+</script>
 @endsection
