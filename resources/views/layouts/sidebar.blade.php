@@ -30,7 +30,7 @@
     
                         @endif
                         <li class="nav-item">
-                            <a href="profile.html">Profile</a>
+                            <a href="{{route('account.profile')}}">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('account.myReviews')}}">My Reviews</a>

@@ -30,18 +30,18 @@
                     Navigation
                 </div>
                 <div class="card-body sidebar">
-                    <ul class="nav flex-column">
+                <ul class="nav flex-column">
                         <li class="nav-item">
                             <a href="{{route('books.index')}}">Books</a>
                         </li>
                         <li class="nav-item">
-                            <a href="reviews.html">Reviews</a>
+                            <a href="{{route('account.myReviews')}}">Reviews</a>
                         </li>
                         <li class="nav-item">
-                            <a href="profile.html">Profile</a>
+                            <a href="{{route('account.profile')}}">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a href="my-reviews.html">My Reviews</a>
+                            <a href="{{route('account.myReviews')}}">My Reviews</a>
                         </li>
                         <li class="nav-item">
                             <a href="change-password.html">Change Password</a>
