@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'chech-admin'=>CheckAdmin::class
+            'check-admin'=>CheckAdmin::class
         ]);
         //
         $middleware->redirectTo(
